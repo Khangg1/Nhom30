@@ -1,0 +1,322 @@
+USE [quanlybandongho]
+GO
+/****** Object:  Table [dbo].[admin]    Script Date: 07/12/2024 09:49:17 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[admin](
+	[maadmin] [int] IDENTITY(1,1) NOT NULL,
+	[tenadmin] [nvarchar](255) NOT NULL,
+	[email] [nvarchar](255) NOT NULL,
+	[matkhau] [nvarchar](255) NOT NULL,
+	[isdelete] [bit] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[maadmin] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[chitietdonhang]    Script Date: 07/12/2024 09:49:17 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[chitietdonhang](
+	[madh] [int] NOT NULL,
+	[madonhang] [int] NOT NULL,
+	[soluong] [int] NOT NULL,
+	[dongia] [decimal](18, 2) NOT NULL,
+	[isdelete] [bit] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[madh] ASC,
+	[madonhang] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[DanhGia]    Script Date: 07/12/2024 09:49:17 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[DanhGia](
+	[madanhgia] [int] IDENTITY(1,1) NOT NULL,
+	[masp] [int] NOT NULL,
+	[mand] [int] NOT NULL,
+	[noidung] [nvarchar](500) NULL,
+	[diem] [int] NOT NULL,
+	[ngaydanhgia] [datetime] NULL,
+	[isdelete] [bit] NULL,
+ CONSTRAINT [PK_DanhGia] PRIMARY KEY CLUSTERED 
+(
+	[madanhgia] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[dongho]    Script Date: 07/12/2024 09:49:17 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[dongho](
+	[madh] [int] IDENTITY(1,1) NOT NULL,
+	[tendongho] [nvarchar](255) NOT NULL,
+	[mota] [nvarchar](255) NOT NULL,
+	[hinhanh] [nvarchar](255) NOT NULL,
+	[gia] [decimal](18, 2) NOT NULL,
+	[maloaidh] [int] NULL,
+	[isdelete] [bit] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[madh] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[donhang]    Script Date: 07/12/2024 09:49:17 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[donhang](
+	[madonhang] [int] IDENTITY(1,1) NOT NULL,
+	[mand] [int] NULL,
+	[ngaydat] [datetime] NULL,
+	[tongtien] [decimal](18, 2) NOT NULL,
+	[diachigiaohang] [nvarchar](255) NOT NULL,
+	[matrangthai_giaohang] [int] NULL,
+	[matrangthai_thanhtoan] [int] NULL,
+	[isdelete] [bit] NULL,
+	[phuongthucthanhtoan] [nvarchar](100) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[madonhang] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[loaidongho]    Script Date: 07/12/2024 09:49:17 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[loaidongho](
+	[maloaidh] [int] IDENTITY(1,1) NOT NULL,
+	[tenloai] [nvarchar](255) NOT NULL,
+	[isdelete] [bit] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[maloaidh] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[nguoidung]    Script Date: 07/12/2024 09:49:17 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[nguoidung](
+	[mand] [int] IDENTITY(1,1) NOT NULL,
+	[tennguoidung] [nvarchar](255) NOT NULL,
+	[email] [nvarchar](255) NOT NULL,
+	[matkhau] [nvarchar](255) NOT NULL,
+	[isdelete] [bit] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[mand] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[trangthai_giaohang]    Script Date: 07/12/2024 09:49:17 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[trangthai_giaohang](
+	[matrangthai] [int] IDENTITY(1,1) NOT NULL,
+	[tentrangthai] [nvarchar](50) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[matrangthai] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[trangthai_thanhtoan]    Script Date: 07/12/2024 09:49:17 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[trangthai_thanhtoan](
+	[matrangthai] [int] IDENTITY(1,1) NOT NULL,
+	[tentrangthai] [nvarchar](50) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[matrangthai] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[yeuthich]    Script Date: 07/12/2024 09:49:17 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[yeuthich](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[mand] [int] NOT NULL,
+	[madh] [int] NOT NULL,
+	[ngayyeuthich] [datetime] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[admin] ON 
+
+INSERT [dbo].[admin] ([maadmin], [tenadmin], [email], [matkhau], [isdelete]) VALUES (1, N'Admin1', N'admin@gmail.com', N'1', 0)
+INSERT [dbo].[admin] ([maadmin], [tenadmin], [email], [matkhau], [isdelete]) VALUES (2, N'23', N'xminhhoa8@gmail.com', N'xminhhoa8@gmail.com', 0)
+SET IDENTITY_INSERT [dbo].[admin] OFF
+GO
+INSERT [dbo].[chitietdonhang] ([madh], [madonhang], [soluong], [dongia], [isdelete]) VALUES (4, 24, 1, CAST(2500000.00 AS Decimal(18, 2)), 0)
+INSERT [dbo].[chitietdonhang] ([madh], [madonhang], [soluong], [dongia], [isdelete]) VALUES (4, 25, 1, CAST(2500000.00 AS Decimal(18, 2)), 0)
+INSERT [dbo].[chitietdonhang] ([madh], [madonhang], [soluong], [dongia], [isdelete]) VALUES (4, 26, 1, CAST(2500000.00 AS Decimal(18, 2)), 0)
+INSERT [dbo].[chitietdonhang] ([madh], [madonhang], [soluong], [dongia], [isdelete]) VALUES (5, 24, 1, CAST(4500000.00 AS Decimal(18, 2)), 0)
+GO
+SET IDENTITY_INSERT [dbo].[DanhGia] ON 
+
+INSERT [dbo].[DanhGia] ([madanhgia], [masp], [mand], [noidung], [diem], [ngaydanhgia], [isdelete]) VALUES (1, 4, 1, N'1', 1, CAST(N'2024-12-06T13:32:11.563' AS DateTime), 0)
+INSERT [dbo].[DanhGia] ([madanhgia], [masp], [mand], [noidung], [diem], [ngaydanhgia], [isdelete]) VALUES (2, 4, 1, N'232', 1, CAST(N'2024-12-06T19:34:30.370' AS DateTime), 0)
+INSERT [dbo].[DanhGia] ([madanhgia], [masp], [mand], [noidung], [diem], [ngaydanhgia], [isdelete]) VALUES (3, 4, 1, N'12', 2, CAST(N'2024-12-06T19:34:35.367' AS DateTime), 0)
+INSERT [dbo].[DanhGia] ([madanhgia], [masp], [mand], [noidung], [diem], [ngaydanhgia], [isdelete]) VALUES (4, 4, 3, N'55555555555555', 1, CAST(N'2024-12-06T20:09:41.173' AS DateTime), 0)
+INSERT [dbo].[DanhGia] ([madanhgia], [masp], [mand], [noidung], [diem], [ngaydanhgia], [isdelete]) VALUES (5, 4, 3, N'55555555', 5, CAST(N'2024-12-06T23:23:49.240' AS DateTime), 0)
+SET IDENTITY_INSERT [dbo].[DanhGia] OFF
+GO
+SET IDENTITY_INSERT [dbo].[dongho] ON 
+
+INSERT [dbo].[dongho] ([madh], [tendongho], [mota], [hinhanh], [gia], [maloaidh], [isdelete]) VALUES (1, N'Casio G-Shock', N'Ð?ng h? th? thao b?n b?', N'gshock.jpg', CAST(2500000.00 AS Decimal(18, 2)), 3, 1)
+INSERT [dbo].[dongho] ([madh], [tendongho], [mota], [hinhanh], [gia], [maloaidh], [isdelete]) VALUES (2, N'Seiko 5', N'Ð?ng h? co t? d?ng', N'seiko5.jpg', CAST(4500000.00 AS Decimal(18, 2)), 1, 1)
+INSERT [dbo].[dongho] ([madh], [tendongho], [mota], [hinhanh], [gia], [maloaidh], [isdelete]) VALUES (3, N'Apple Watch', N'Ð?ng h? thông minh', N'applewatch.jpg', CAST(8000000.00 AS Decimal(18, 2)), 2, 1)
+INSERT [dbo].[dongho] ([madh], [tendongho], [mota], [hinhanh], [gia], [maloaidh], [isdelete]) VALUES (4, N'Casio G-Shock', N'Đồng hồ thể thao bền bỉ', N'1.webp', CAST(2500000.00 AS Decimal(18, 2)), 4, 0)
+INSERT [dbo].[dongho] ([madh], [tendongho], [mota], [hinhanh], [gia], [maloaidh], [isdelete]) VALUES (5, N'Seiko 5', N'Đồng hồ cơ tự động', N'1.webp', CAST(4500000.00 AS Decimal(18, 2)), 5, 0)
+INSERT [dbo].[dongho] ([madh], [tendongho], [mota], [hinhanh], [gia], [maloaidh], [isdelete]) VALUES (6, N'Apple Watch', N'Đồng hồ thông minh', N'1.webp', CAST(8000000.00 AS Decimal(18, 2)), 6, 0)
+INSERT [dbo].[dongho] ([madh], [tendongho], [mota], [hinhanh], [gia], [maloaidh], [isdelete]) VALUES (7, N'123', N'123', N'6750487737d19.jpg', CAST(123.00 AS Decimal(18, 2)), 5, 1)
+INSERT [dbo].[dongho] ([madh], [tendongho], [mota], [hinhanh], [gia], [maloaidh], [isdelete]) VALUES (8, N'23', N'23', N'67504887382b3.jpg', CAST(123.00 AS Decimal(18, 2)), 6, 1)
+INSERT [dbo].[dongho] ([madh], [tendongho], [mota], [hinhanh], [gia], [maloaidh], [isdelete]) VALUES (9, N'123123', N'1231234', N'675052a5c52ca.gif', CAST(123.00 AS Decimal(18, 2)), 4, 1)
+INSERT [dbo].[dongho] ([madh], [tendongho], [mota], [hinhanh], [gia], [maloaidh], [isdelete]) VALUES (10, N'Apple 1', N'Đồng hồ thông minh', N'1.webp', CAST(8000000.00 AS Decimal(18, 2)), 6, 0)
+INSERT [dbo].[dongho] ([madh], [tendongho], [mota], [hinhanh], [gia], [maloaidh], [isdelete]) VALUES (11, N'Apple 2', N'Đồng hồ thông minh', N'1.webp', CAST(8000000.00 AS Decimal(18, 2)), 6, 0)
+INSERT [dbo].[dongho] ([madh], [tendongho], [mota], [hinhanh], [gia], [maloaidh], [isdelete]) VALUES (12, N'Apple 3', N'Đồng hồ thông minh', N'1.webp', CAST(8000000.00 AS Decimal(18, 2)), 6, 0)
+SET IDENTITY_INSERT [dbo].[dongho] OFF
+GO
+SET IDENTITY_INSERT [dbo].[donhang] ON 
+
+INSERT [dbo].[donhang] ([madonhang], [mand], [ngaydat], [tongtien], [diachigiaohang], [matrangthai_giaohang], [matrangthai_thanhtoan], [isdelete], [phuongthucthanhtoan]) VALUES (24, 1, CAST(N'2024-12-06T19:50:35.707' AS DateTime), CAST(7000000.00 AS Decimal(18, 2)), N'2323232', 1, 1, 0, N'atm')
+INSERT [dbo].[donhang] ([madonhang], [mand], [ngaydat], [tongtien], [diachigiaohang], [matrangthai_giaohang], [matrangthai_thanhtoan], [isdelete], [phuongthucthanhtoan]) VALUES (25, 1, CAST(N'2024-12-06T19:53:58.880' AS DateTime), CAST(2500000.00 AS Decimal(18, 2)), N'5555', 1, 1, 0, N'cash')
+INSERT [dbo].[donhang] ([madonhang], [mand], [ngaydat], [tongtien], [diachigiaohang], [matrangthai_giaohang], [matrangthai_thanhtoan], [isdelete], [phuongthucthanhtoan]) VALUES (26, 3, CAST(N'2024-12-06T20:09:57.020' AS DateTime), CAST(2500000.00 AS Decimal(18, 2)), N'123213123213', 2, 2, 0, N'atm')
+SET IDENTITY_INSERT [dbo].[donhang] OFF
+GO
+SET IDENTITY_INSERT [dbo].[loaidongho] ON 
+
+INSERT [dbo].[loaidongho] ([maloaidh], [tenloai], [isdelete]) VALUES (1, N'Ð?ng h? co', 1)
+INSERT [dbo].[loaidongho] ([maloaidh], [tenloai], [isdelete]) VALUES (2, N'Ð?ng h? di?n t?', 1)
+INSERT [dbo].[loaidongho] ([maloaidh], [tenloai], [isdelete]) VALUES (3, N'Ð?ng h? th? thao', 1)
+INSERT [dbo].[loaidongho] ([maloaidh], [tenloai], [isdelete]) VALUES (4, N'Đồng hồ cơ', 0)
+INSERT [dbo].[loaidongho] ([maloaidh], [tenloai], [isdelete]) VALUES (5, N'Đồng hồ điện tử', 0)
+INSERT [dbo].[loaidongho] ([maloaidh], [tenloai], [isdelete]) VALUES (6, N'Đồng hồ thể thao', 0)
+INSERT [dbo].[loaidongho] ([maloaidh], [tenloai], [isdelete]) VALUES (7, N'Đồng hồ rolex', 0)
+INSERT [dbo].[loaidongho] ([maloaidh], [tenloai], [isdelete]) VALUES (8, N'cx', 1)
+SET IDENTITY_INSERT [dbo].[loaidongho] OFF
+GO
+SET IDENTITY_INSERT [dbo].[nguoidung] ON 
+
+INSERT [dbo].[nguoidung] ([mand], [tennguoidung], [email], [matkhau], [isdelete]) VALUES (1, N'Nguyen Van A', N'a@gmail.com', N'1', 0)
+INSERT [dbo].[nguoidung] ([mand], [tennguoidung], [email], [matkhau], [isdelete]) VALUES (2, N'hoanv1', N'hoanv1@gmail.com', N'$2y$10$zpjiKFDr5gzEilUUcsyoLOzMdCc0OCnOL6GmVl.3bZIiIoWh0.bUa', 1)
+INSERT [dbo].[nguoidung] ([mand], [tennguoidung], [email], [matkhau], [isdelete]) VALUES (3, N'nvv', N'nvv@gmail.com', N'nvv', 0)
+SET IDENTITY_INSERT [dbo].[nguoidung] OFF
+GO
+SET IDENTITY_INSERT [dbo].[trangthai_giaohang] ON 
+
+INSERT [dbo].[trangthai_giaohang] ([matrangthai], [tentrangthai]) VALUES (1, N'Chưa giao')
+INSERT [dbo].[trangthai_giaohang] ([matrangthai], [tentrangthai]) VALUES (2, N'Ðã giao')
+SET IDENTITY_INSERT [dbo].[trangthai_giaohang] OFF
+GO
+SET IDENTITY_INSERT [dbo].[trangthai_thanhtoan] ON 
+
+INSERT [dbo].[trangthai_thanhtoan] ([matrangthai], [tentrangthai]) VALUES (1, N'Chưa thanh toán')
+INSERT [dbo].[trangthai_thanhtoan] ([matrangthai], [tentrangthai]) VALUES (2, N'Ðã thanh toán')
+SET IDENTITY_INSERT [dbo].[trangthai_thanhtoan] OFF
+GO
+SET IDENTITY_INSERT [dbo].[yeuthich] ON 
+
+INSERT [dbo].[yeuthich] ([id], [mand], [madh], [ngayyeuthich]) VALUES (10, 1, 5, CAST(N'2024-11-30T20:14:45.163' AS DateTime))
+INSERT [dbo].[yeuthich] ([id], [mand], [madh], [ngayyeuthich]) VALUES (12, 1, 4, CAST(N'2024-12-01T18:44:46.507' AS DateTime))
+SET IDENTITY_INSERT [dbo].[yeuthich] OFF
+GO
+SET ANSI_PADDING ON
+GO
+/****** Object:  Index [UQ__loaidong__07A2ED85916E15C8]    Script Date: 07/12/2024 09:49:17 ******/
+ALTER TABLE [dbo].[loaidongho] ADD UNIQUE NONCLUSTERED 
+(
+	[tenloai] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[admin] ADD  DEFAULT ((0)) FOR [isdelete]
+GO
+ALTER TABLE [dbo].[chitietdonhang] ADD  DEFAULT ((0)) FOR [isdelete]
+GO
+ALTER TABLE [dbo].[DanhGia] ADD  DEFAULT (getdate()) FOR [ngaydanhgia]
+GO
+ALTER TABLE [dbo].[DanhGia] ADD  DEFAULT ((0)) FOR [isdelete]
+GO
+ALTER TABLE [dbo].[dongho] ADD  DEFAULT ((0)) FOR [isdelete]
+GO
+ALTER TABLE [dbo].[donhang] ADD  DEFAULT (getdate()) FOR [ngaydat]
+GO
+ALTER TABLE [dbo].[donhang] ADD  DEFAULT ((1)) FOR [matrangthai_giaohang]
+GO
+ALTER TABLE [dbo].[donhang] ADD  DEFAULT ((1)) FOR [matrangthai_thanhtoan]
+GO
+ALTER TABLE [dbo].[donhang] ADD  DEFAULT ((0)) FOR [isdelete]
+GO
+ALTER TABLE [dbo].[loaidongho] ADD  DEFAULT ((0)) FOR [isdelete]
+GO
+ALTER TABLE [dbo].[nguoidung] ADD  DEFAULT ((0)) FOR [isdelete]
+GO
+ALTER TABLE [dbo].[yeuthich] ADD  DEFAULT (getdate()) FOR [ngayyeuthich]
+GO
+ALTER TABLE [dbo].[chitietdonhang]  WITH CHECK ADD FOREIGN KEY([madonhang])
+REFERENCES [dbo].[donhang] ([madonhang])
+GO
+ALTER TABLE [dbo].[chitietdonhang]  WITH CHECK ADD FOREIGN KEY([madh])
+REFERENCES [dbo].[dongho] ([madh])
+GO
+ALTER TABLE [dbo].[DanhGia]  WITH CHECK ADD  CONSTRAINT [FK_DanhGia_NguoiDung] FOREIGN KEY([mand])
+REFERENCES [dbo].[nguoidung] ([mand])
+GO
+ALTER TABLE [dbo].[DanhGia] CHECK CONSTRAINT [FK_DanhGia_NguoiDung]
+GO
+ALTER TABLE [dbo].[DanhGia]  WITH CHECK ADD  CONSTRAINT [FK_DanhGia_SanPham] FOREIGN KEY([masp])
+REFERENCES [dbo].[dongho] ([madh])
+GO
+ALTER TABLE [dbo].[DanhGia] CHECK CONSTRAINT [FK_DanhGia_SanPham]
+GO
+ALTER TABLE [dbo].[dongho]  WITH CHECK ADD FOREIGN KEY([maloaidh])
+REFERENCES [dbo].[loaidongho] ([maloaidh])
+GO
+ALTER TABLE [dbo].[donhang]  WITH CHECK ADD FOREIGN KEY([mand])
+REFERENCES [dbo].[nguoidung] ([mand])
+GO
+ALTER TABLE [dbo].[donhang]  WITH CHECK ADD FOREIGN KEY([matrangthai_giaohang])
+REFERENCES [dbo].[trangthai_giaohang] ([matrangthai])
+GO
+ALTER TABLE [dbo].[donhang]  WITH CHECK ADD FOREIGN KEY([matrangthai_thanhtoan])
+REFERENCES [dbo].[trangthai_thanhtoan] ([matrangthai])
+GO
+ALTER TABLE [dbo].[yeuthich]  WITH CHECK ADD FOREIGN KEY([madh])
+REFERENCES [dbo].[dongho] ([madh])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[yeuthich]  WITH CHECK ADD FOREIGN KEY([mand])
+REFERENCES [dbo].[nguoidung] ([mand])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[chitietdonhang]
+ADD [size] NVARCHAR(50) NULL;
