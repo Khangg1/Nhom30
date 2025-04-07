@@ -1,7 +1,7 @@
 <?php
 session_start();
 include('db.php');
-
+date_default_timezone_set('Asia/Ho_Chi_Minh');
 // Kiểm tra xem người dùng đã đăng nhập chưa
 if (!isset($_SESSION['user'])) {
     header('Location: login.php');
@@ -95,7 +95,7 @@ function vnpayPayment($totalAmount)
     $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
     $vnp_Returnurl = "http://localhost:8080/quanlydongho/Client/cart.php"; // Thay url  vào đây
     $vnp_TmnCode = "VI1OLR26"; //Mã website tại VNPAY 
-    $vnp_HashSecret = "SOC4YSPY8GQ4TR75HZPAB6NNCLMK7YHH"; //Chuỗi bí mật 
+    $vnp_HashSecret = "SO86DF6B0ID6FO5E286CM31R7QE7VL43"; //Chuỗi bí mật 
 
     $vnp_TxnRef = uniqid();
     $vnp_OrderInfo = $_POST['order_desc'] ?? 'Thanh toán đơn hàng';
@@ -107,6 +107,7 @@ function vnpayPayment($totalAmount)
     $vnp_IpAddr = $_SERVER['REMOTE_ADDR'];
 
     // $vnp_ExpireDate = $_POST['txtexpire'];
+    $vnp_ExpireDate = date('YmdHis', strtotime('+10 minutes'));
 
     $inputData = array(
         "vnp_Version" => "2.1.0",

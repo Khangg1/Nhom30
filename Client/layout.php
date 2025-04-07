@@ -10,7 +10,7 @@ $username = $isLoggedIn ? $_SESSION['user']['tennguoidung'] : null;
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Layout Quản lý đồng hồ</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
@@ -18,14 +18,6 @@ $username = $isLoggedIn ? $_SESSION['user']['tennguoidung'] : null;
     <!-- Bootstrap CSS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-
-<!-- Thêm jQuery -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-<!-- Thêm Slick Carousel -->
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css"/>
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css"/>
-<script src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
 
     <style>
         body {
@@ -737,8 +729,6 @@ $username = $isLoggedIn ? $_SESSION['user']['tennguoidung'] : null;
             prevBtn.addEventListener('click', prevSlide);
             nextBtn.addEventListener('click', nextSlide);
         });
-
-        
     </script>
 
     <script>
@@ -771,11 +761,7 @@ $username = $isLoggedIn ? $_SESSION['user']['tennguoidung'] : null;
             });
         });
     </script>
-    
-    
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

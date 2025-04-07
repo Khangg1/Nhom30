@@ -182,8 +182,7 @@ ob_start();
                 <p style="font-size: 1.1em; color: #333;"><?php echo number_format($topProduct['gia'], 0, ',', '.'); ?> VNĐ</p>
             </a>
         <?php endforeach; ?>
-</div>
-
+    </div>
     <style>
         .carousel-item:hover {
             transform: scale(1.05);
@@ -545,32 +544,17 @@ ob_start();
     });
 
     $(document).ready(function() {
-    $('.top-products-carousel').slick({
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 2000,
-        arrows: true,
-        dots: true,
-        infinite: true,
-        draggable: true,
-        responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 2
-                }
-            },
-            {
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 1
-                }
-            }
-        ]
+        $('.top-products-carousel').slick({
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 2000,
+            arrows: true,
+            dots: true,
+            infinite: true,
+            draggable: true, // Enable dragging with mouse
+        });
     });
-});
-
 </script>
 
 <?php
