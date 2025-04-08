@@ -19,7 +19,7 @@ $content = '
                 <img src="https://png.pngtree.com/png-clipart/20230923/original/pngtree-clock-logo-icon-clock-idea-hour-vector-png-image_12532476.png" alt="TIMEPIECE Store" class="story-image">
             </div>
             <div class="story-text">
-                <p class="story-highlight">Được thành lập vào năm 2010, TIMEPIECE đã trở thành điểm đến tin cậy cho những người yêu thích đồng hồ tại Việt Nam.</p>
+                <p class="story-highlight">Được thành lập vào năm 2010, TIMEPIECE đã trở thành điểm đến tin cậy cho những người yêu thích đồng hồ tại Việt Nam và thế giới.</p>
                 <p>Với hơn 10 năm kinh nghiệm, chúng tôi tự hào mang đến:</p>
                 <ul class="story-features">
                     <li><i class="fas fa-check"></i> Sản phẩm chính hãng 100%</li>
