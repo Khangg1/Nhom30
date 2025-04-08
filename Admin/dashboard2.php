@@ -20,7 +20,7 @@ $totalCustomers = $stmt->fetchColumn();
 
 $stmt = $conn->query("SELECT SUM(tongtien) FROM donhang WHERE isdelete = 0");
 $totalRevenue = $stmt->fetchColumn();
-
+//asdasdasd
 // Thống kê doanh thu theo tháng (6 tháng gần nhất)
 $stmt = $conn->query("
     SELECT 
