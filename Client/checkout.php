@@ -2,7 +2,7 @@
 session_start();
 include('db.php');
 date_default_timezone_set('Asia/Ho_Chi_Minh');
-// Kiểm tra xem người dùng đã đăng nhập chưa
+// Kiểm tra xem người dùng đã đăng nhập chưa 
 if (!isset($_SESSION['user'])) {
     header('Location: login.php');
     exit;
@@ -23,7 +23,7 @@ $deliveryAddress = isset($_POST['address']) ? $_POST['address'] : '123 Đường
 
 // Bắt đầu transaction
 $conn->beginTransaction();
-
+//$conn->beginTransaction();
 try {
     // Tính tổng tiền từ giỏ hàng
     $totalAmount = 0;
