@@ -21,7 +21,7 @@ $cartItems = $_SESSION['cart']; // Lấy giỏ hàng từ session
 $paymentMethod = isset($_POST['payment_method']) ? $_POST['payment_method'] : 'cash';
 $deliveryAddress = isset($_POST['address']) ? $_POST['address'] : '123 Đường ABC, Thành phố XYZ'; // Có thể lấy từ form
 
-//Sửa 
+//Sửa dfgdfghdgd
 // Bắt đầu transaction
 $conn->beginTransaction();
 
