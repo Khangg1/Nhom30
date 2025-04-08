@@ -7,7 +7,7 @@ if (!isset($_SESSION['mand'])) {
     echo json_encode(['success' => false, 'message' => 'Vui lòng đăng nhập trước.']);
     exit;
 }
-
+//Suawr thanhf cong nheee
 if (isset($_POST['productId'])) {
     $productId = intval($_POST['productId']);
     $userId = $_SESSION['mand'];  // Lấy ID người dùng từ session
